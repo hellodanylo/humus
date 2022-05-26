@@ -1,4 +1,7 @@
-FROM ubuntu:20.04 as core
+# Default base image is the official Ubuntu x86 20.04
+ARG BASE_IMAGE=ubuntu:20.04
+FROM $BASE_IMAGE as core
+ARG ARCH=amd64
 
 SHELL ["/bin/bash", "-c"]
 
@@ -6,6 +9,7 @@ RUN apt-get -y update >/dev/null \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -y install \
         curl \
+        dnsutils \
         fzf \
         git \
         gnupg \
@@ -20,16 +24,18 @@ RUN apt-get -y update >/dev/null \
         vim \
         wget \
         zip \
-        zsh \
-        >/dev/null
+        zsh
 
 RUN yes | unminimize
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
 RUN add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
-   >/dev/null
-RUN apt-get update -y >/dev/null && apt-get install -y docker-ce-cli >/dev/null
+   "deb [arch=$ARCH] https://download.docker.com/linux/ubuntu bionic stable"
+
+RUN apt-get update >/dev/null && \
+    apt-get install -y \
+    docker-ce-cli
 
 RUN git config --global advice.detachedHead false
 
