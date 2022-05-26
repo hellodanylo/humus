@@ -26,7 +26,7 @@ RUN apt-get -y update >/dev/null \
         zip \
         zsh
 
-RUN yes | unminimize
+#RUN yes | unminimize
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
