@@ -30,8 +30,7 @@ RUN apt-get -y update >/dev/null \
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
-RUN add-apt-repository \
-   "deb [arch=$ARCH] https://download.docker.com/linux/ubuntu bionic stable"
+RUN add-apt-repository "deb https://download.docker.com/linux/ubuntu bionic stable"
 
 RUN apt-get update >/dev/null && \
     apt-get install -y \
