@@ -106,3 +106,4 @@ export SAVEHIS=10000000
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
+source "$HUMUS_PATH/zsh/zshrc_local.sh"

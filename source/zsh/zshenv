@@ -1,2 +1,7 @@
 # This file is sourced on every execution of zsh.
-export PATH="$HOME/opt/bin:$PATH"
+
+export HUMUS_PATH="$HOME/.humus"
+
+export ZSH="$HUMUS_PATH/zsh/ohmyzsh"
+
+source "$HUMUS_PATH/zsh/zshenv_local.sh"

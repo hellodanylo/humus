@@ -2,3 +2,9 @@
 .ipynb_checkpoints
 *.swp
 .idea
+
+source/vim/.netrwhist
+source/vim/bundle/
+source/vim/pack/
+source/zsh/ohmyzsh/
+
