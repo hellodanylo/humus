@@ -14,6 +14,7 @@ RUN apt-get -y update >/dev/null \
         git \
         gnupg \
         htop \
+        locales \
         man \
         ripgrep \
         silversearcher-ag \
@@ -28,6 +29,10 @@ RUN apt-get -y update >/dev/null \
 
 #RUN yes | unminimize
 
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+RUN locale-gen
+
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
 RUN add-apt-repository "deb https://download.docker.com/linux/ubuntu bionic stable"
@@ -40,6 +45,7 @@ RUN git config --global advice.detachedHead false
 
 ENV HUMUS_PATH=/opt/humus
 RUN mkdir -p $HUMUS_PATH
+RUN ln -s /root/.humus $HUMUS_PATH
 
 COPY zsh $HUMUS_PATH/zsh
 RUN $HUMUS_PATH/zsh/install.sh
