@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+script_dir=${0:a:h}
 image_name="humus"
 
 docker build \
@@ -8,12 +8,20 @@ docker build \
     --build-arg BASE_IMAGE=arm32v7/ubuntu:20.04 \
     --build-arg ARCH=armhf \
     --target core \
-    -t $image_name:latest-arm7 \
+    -t "$image_name":latest-arm7 \
+    $script_dir/../source
+
+docker build \
+    --platform linux/arm64/v8 \
+    --build-arg BASE_IMAGE=ubuntu:20.04 \
+    --build-arg ARCH=arm64 \
+    --target core \
+    -t "$image_name":latest-arm8 \
     $script_dir/../source
 
 docker build \
     --platform linux/amd64 \
     --build-arg ARCH=amd64 \
     --target core \
-    -t $image_name:latest-amd64 \
+    -t "$image_name":latest-amd64 \
     $script_dir/../source
