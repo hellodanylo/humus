@@ -2,6 +2,7 @@
 
 prefix=$1
 
+ln -s $prefix ~/.humus
 ln -s $prefix/zsh/zshrc ~/.zshrc
 ln -s $prefix/zsh/zshenv ~/.zshenv
 ln -s $prefix/vim ~/.vim
