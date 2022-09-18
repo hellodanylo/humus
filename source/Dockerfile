@@ -1,5 +1,4 @@
-# Default base image is the official Ubuntu x86 20.04
-ARG BASE_IMAGE=ubuntu:20.04
+ARG BASE_IMAGE=ubuntu:22.04
 FROM $BASE_IMAGE as core
 ARG ARCH=amd64
 
