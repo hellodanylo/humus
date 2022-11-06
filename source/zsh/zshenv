@@ -1,5 +1,7 @@
 # This file is sourced on every execution of zsh.
-export HUMUS_PATH="$HOME/.humus"
+if [[ -z $HUMUS_PATH ]]; then
+    export HUMUS_PATH="$HOME/.humus"
+fi
 
 export ZSH="$HUMUS_PATH/zsh/ohmyzsh"
 
