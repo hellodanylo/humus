@@ -26,7 +26,7 @@ RUN apt-get -y update >/dev/null \
         zip \
         zsh
 
-#RUN yes | unminimize
+RUN yes | unminimize
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
@@ -67,12 +67,17 @@ CMD ["zsh", "-l"]
 
 FROM core as user
 
-ARG user
+ARG user_name
 ARG user_id
-ARG group
+ARG group_name
 ARG group_id
 
-RUN $HUMUS_PATH/create_user.sh $user_id $user $group_id $group
-USER $user
+ENV user_id=${user_id}
+ENV user_name=${user_name}
+ENV group_id=${group_id}
+ENV group_name=${group_name}
+
+RUN $HUMUS_PATH/create_user.sh $user_id $user_name $group_id $group_name
+USER $user_name:$group_name
 
 WORKDIR /home/$user

@@ -11,9 +11,9 @@ group_name=$(id | sed 's/.*gid=\([0-9]*\)(\([a-zA-Z]*\)).*/\2/')
 
 docker build \
     --target user \
-    --build-arg user=$user_name \
+    --build-arg user_name=$user_name \
     --build-arg user_id=$user_id \
-    --build-arg group=$group_name \
+    --build-arg group_name=$group_name \
     --build-arg group_id=$group_id \
     -t "${image_name}:latest-${user_name}" \
     $script_dir/../source
