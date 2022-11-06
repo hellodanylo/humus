@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+script_dir=${0:a:h}
 image_name="humus"
 
 user_id=$(id | sed 's/uid=\([0-9]*\)(\([a-zA-Z]*\)).*/\1/')
@@ -15,5 +15,5 @@ docker build \
     --build-arg user_id=$user_id \
     --build-arg group=$group_name \
     --build-arg group_id=$group_id \
-    -t $image_name:latest-$user_name \
+    -t "${image_name}:latest-${user_name}" \
     $script_dir/../source
