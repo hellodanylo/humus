@@ -38,7 +38,8 @@ RUN add-apt-repository "deb https://download.docker.com/linux/ubuntu bionic stab
 
 RUN apt-get update >/dev/null && \
     apt-get install -y \
-    docker-ce-cli
+    docker-ce-cli \
+    docker-compose-plugin
 
 RUN git config --global advice.detachedHead false
 
