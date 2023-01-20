@@ -15,5 +15,5 @@ docker build \
     --build-arg user_id=$user_id \
     --build-arg group_name=$group_name \
     --build-arg group_id=$group_id \
-    -t "${image_name}:latest-${user_name}" \
+    -t "${image_name}:${user_name}-latest" \
     $script_dir/../source

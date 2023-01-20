@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-prefix=$1
+prefix=${1:a}
 
 ln -s $prefix ~/.humus
 ln -s $prefix/zsh/zshrc ~/.zshrc

@@ -41,6 +41,10 @@ RUN apt-get update >/dev/null && \
     docker-ce-cli \
     docker-compose-plugin
 
+# The docker group allows access to Docker daemon socket.
+# The group ID might be different on some distributions.
+RUN addgroup --gid 999 docker
+
 RUN git config --global advice.detachedHead false
 
 ENV HUMUS_PATH=/opt/humus
@@ -79,6 +83,7 @@ ENV group_id=${group_id}
 ENV group_name=${group_name}
 
 RUN $HUMUS_PATH/create_user.sh $user_id $user_name $group_id $group_name
-USER $user_name:$group_name
+ENV HUMUS_PATH="/home/$user_name/opt/humus"
+USER $user_name
 
-WORKDIR /home/$user
+WORKDIR /home/$user_name

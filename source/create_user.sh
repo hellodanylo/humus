@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 set -o xtrace
 
@@ -19,6 +19,13 @@ useradd \
     --create-home $user_name \
     --shell /bin/zsh
 
+adduser $user_name docker
+
 echo "$user_name ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers
 
-sudo -u $user_name $HUMUS_PATH/symlink.sh $HUMUS_PATH
+mkdir /home/$user_name/opt
+cd /home/$user_name/opt
+
+cp -r $HUMUS_PATH ./humus
+sudo chown -R $user_name:$group_name .
+sudo -u $user_name ./humus/symlink.sh ./humus
