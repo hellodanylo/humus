@@ -11,3 +11,6 @@ source/zsh/ohmyzsh/
 source/zsh/zshenv_local.sh
 source/zsh/zshrc_local.sh
 
+.vscode
+cdk.out
+__pycache__
