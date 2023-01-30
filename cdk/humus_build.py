@@ -53,7 +53,7 @@ class HumusBuildStack(Stack):
                 privileged=True
             ),
             environment_variables={
-                "ECR_REGISTRY": cb.BuildEnvironmentVariable(value=ecr_repo.repository_uri)
+                "ECR_REPO": cb.BuildEnvironmentVariable(value=ecr_repo.repository_uri)
             },
             role=role,  # type: ignore
             build_spec=cb.BuildSpec.from_source_filename("cdk/buildspec.yml")
