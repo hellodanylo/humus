@@ -9,5 +9,5 @@ dependencies:
       - aws-cdk-lib
       - awscli
       - boto3
+      - git-remote-codecommit
       - python-dotenv
-      - pyyaml
