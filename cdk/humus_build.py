@@ -4,7 +4,7 @@ import aws_cdk.aws_codecommit as cc
 import aws_cdk.aws_codepipeline as cp
 import aws_cdk.aws_codepipeline_actions as cpa
 import aws_cdk.aws_iam as iam
-from aws_cdk import Stack
+from aws_cdk import Stack, Duration
 
 class HumusBuildStack(Stack):
     def __init__(self, 
@@ -19,7 +19,14 @@ class HumusBuildStack(Stack):
 
         ecr_repo = ecr.Repository(
             self, "ECRRepository", 
-            repository_name="humus"
+            repository_name="humus",
+            lifecycle_rules=[
+                ecr.LifecycleRule(
+                    tag_status=ecr.TagStatus.UNTAGGED, 
+                    max_image_age=Duration.days(3),
+                    description="delete untagged images after 3 days"
+                ),
+            ]
         )
 
         role = iam.Role(
