@@ -4,9 +4,11 @@ ARG ARCH=amd64
 
 SHELL ["/bin/bash", "-c"]
 
-RUN apt-get -y update >/dev/null \
+RUN apt-get -qy update >/dev/null \
     && DEBIAN_FRONTEND=noninteractive \
-        apt-get -y install \
+        apt-get -qy install \
+        apt-file \
+        ctop \
         curl \
         dnsutils \
         fzf \
@@ -34,7 +36,9 @@ RUN locale-gen
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
-RUN add-apt-repository "deb https://download.docker.com/linux/ubuntu bionic stable"
+RUN mkdir -m 0755 -p /etc/apt/keyrings && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+    | tee /etc/apt/sources.list.d/docker.list >/dev/null
 
 RUN apt-get update >/dev/null && \
     apt-get install -y \
