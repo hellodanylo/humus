@@ -80,7 +80,7 @@ class HumusBuildStack(Stack):
                         action_name="humus",
                         output=source,
                         branch='main',
-                        trigger=cpa.CodeCommitTrigger.POLL,
+                        trigger=cpa.CodeCommitTrigger.EVENTS,
                         role=role,  # type: ignore
                     )
                 ]),
