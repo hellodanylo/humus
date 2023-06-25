@@ -39,15 +39,16 @@ class HumusBuildStack(Stack):
             managed_policies=[
                 iam.ManagedPolicy.from_managed_policy_arn(self, arn, managed_policy_arn=arn)
                 for arn in [
+                    "arn:aws:iam::aws:policy/AWSCloudFormationFullAccess",
                     "arn:aws:iam::aws:policy/AWSCodeBuildAdminAccess",
                     "arn:aws:iam::aws:policy/AWSCodeCommitPowerUser",
                     "arn:aws:iam::aws:policy/AWSCodePipeline_FullAccess",
                     "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess",
                     "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
                     "arn:aws:iam::aws:policy/AmazonS3FullAccess",
-                    "arn:aws:iam::aws:policy/CloudWatchFullAccess",
-                    "arn:aws:iam::aws:policy/AWSCloudFormationFullAccess",
                     "arn:aws:iam::aws:policy/AmazonSSMFullAccess",
+                    "arn:aws:iam::aws:policy/CloudWatchFullAccess",
+                    "arn:aws:iam::aws:policy/IAMFullAccess",
                 ]
             ]
         )
