@@ -7,11 +7,11 @@ docker build \
     --build-arg ARCH=amd64 \
     --build-arg "BASE_IMAGE=public.ecr.aws/ubuntu/ubuntu:22.04" \
     --target core \
-    --tag $ECR_REPO:main source
+    --tag "${ECR_REPO}:main" source
 
-docker push $ECR_REPO:main
-docker tag $ECR_REPO:main $ECR_REPO:latest
-docker push $ECR_REPO:latest
+docker push "${ECR_REPO}:main"
+docker tag "${ECR_REPO}:main" "${ECR_REPO}:latest"
+docker push "${ECR_REPO}:latest"
 
 docker build \
     --build-arg ARCH=amd64 \
@@ -21,6 +21,6 @@ docker build \
     --build-arg "group_id=1000" \
     --build-arg "group_name=user" \
     --target user \
-    --tag $ECR_REPO:user-latest source
+    --tag "${ECR_REPO}:user-latest" source
 
-docker push $ECR_REPO:user-latest
+docker push "${ECR_REPO}:user-latest"
