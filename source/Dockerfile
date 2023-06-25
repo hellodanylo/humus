@@ -23,7 +23,7 @@ RUN apt-get -qy update >/dev/null \
         sudo \
         tmux \
         tree \
-        vim \
+        neovim \
         wget \
         zip \
         zsh
