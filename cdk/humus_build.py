@@ -46,6 +46,8 @@ class HumusBuildStack(Stack):
                     "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
                     "arn:aws:iam::aws:policy/AmazonS3FullAccess",
                     "arn:aws:iam::aws:policy/CloudWatchFullAccess",
+                    "arn:aws:iam::aws:policy/AWSCloudFormationFullAccess",
+                    "arn:aws:iam::aws:policy/AmazonSSMFullAccess",
                 ]
             ]
         )
