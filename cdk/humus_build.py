@@ -54,7 +54,7 @@ class HumusBuildStack(Stack):
         )
         role.add_to_policy(iam.PolicyStatement(
             actions=["sts:AssumeRole"],
-            resources=["arn:aws:iam::*:role/cdk-*-deploy-role-*"]
+            resources=["arn:aws:iam::*:role/cdk-*"]
         ))
 
         project = cb.PipelineProject(
