@@ -11,6 +11,7 @@ RUN apt-get -qy update >/dev/null \
         ctop \
         curl \
         dnsutils \
+	exa \
         fzf \
         git \
         gnupg \
