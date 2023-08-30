@@ -23,7 +23,7 @@ vim -E -u NONE -c "helptags $VIM_PLUGINS/vim-airline/doc" -c q
 
 git clone -q https://github.com/elzr/vim-json.git $script_dir/bundle/vim-json
 
-git clone -q -b v0.4 https://github.com/hanschen/vim-ipython-cell.git $script_dir/bundle/vim-ipython-cell
+#git clone -q -b v0.4 https://github.com/hanschen/vim-ipython-cell.git $script_dir/bundle/vim-ipython-cell
 
 git clone -q -b v0.10.2 https://github.com/VundleVim/Vundle.vim.git $script_dir/bundle/Vundle.vim
 
