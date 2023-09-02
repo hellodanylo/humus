@@ -8,10 +8,11 @@ RUN apt-get -qy update >/dev/null \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -qy install \
         apt-file \
+        bmon \
         ctop \
         curl \
         dnsutils \
-	exa \
+        exa \
         fzf \
         git \
         gnupg \
