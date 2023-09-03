@@ -25,6 +25,7 @@ RUN apt-get -qy update >/dev/null \
         sudo \
         tmux \
         tree \
+        tzdata \
         neovim \
         wget \
         zip \
