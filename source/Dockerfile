@@ -9,6 +9,7 @@ RUN apt-get -qy update >/dev/null \
         apt-get -qy install \
         apt-file \
         bmon \
+        clang \
         ctop \
         curl \
         dnsutils \
