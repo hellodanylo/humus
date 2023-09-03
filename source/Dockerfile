@@ -26,7 +26,6 @@ RUN apt-get -qy update >/dev/null \
         tmux \
         tree \
         tzdata \
-        neovim \
         wget \
         zip \
         zsh
@@ -63,13 +62,16 @@ RUN $HUMUS_PATH/zsh/install.sh
 ENV ZSH=$HUMUS_PATH/zsh/ohmyzsh
 RUN chsh root -s /bin/zsh
 
+COPY symlink.sh $HUMUS_PATH/symlink.sh
+RUN $HUMUS_PATH/symlink.sh $HUMUS_PATH
+
+RUN wget -O - https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz | tar -xz -C $HUMUS_PATH && \
+    ln -s $HUMUS_PATH/nvim-linux64/bin/nvim $HUMUS_PATH/nvim-linux64/bin/vim
+
 COPY vim $HUMUS_PATH/vim
 RUN $HUMUS_PATH/vim/install.sh
 
 COPY tmux.conf $HUMUS_PATH/tmux.conf
-
-COPY symlink.sh $HUMUS_PATH/symlink.sh
-RUN $HUMUS_PATH/symlink.sh $HUMUS_PATH
 
 COPY create_user.sh $HUMUS_PATH/create_user.sh
 

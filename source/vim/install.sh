@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -eux
+
 script_dir=${0:a:h}
 
 VIM_PLUGINS=$script_dir/pack/shell/start
@@ -24,7 +26,7 @@ git clone -q -b v0.11 https://github.com/vim-airline/vim-airline.git $VIM_PLUGIN
 git clone -q https://github.com/vim-airline/vim-airline-themes.git $VIM_PLUGINS/vim-airline-themes
 vim -E -u NONE -c "helptags $VIM_PLUGINS/vim-airline/doc" -c q
 
-git clone -q https://github.com/elzr/vim-json.git $script_dir/bundle/vim-json
+# git clone -q https://github.com/elzr/vim-json.git $script_dir/bundle/vim-json
 
-git clone -q -b v0.10.2 https://github.com/VundleVim/Vundle.vim.git $script_dir/bundle/Vundle.vim
+# git clone -q -b v0.10.2 https://github.com/VundleVim/Vundle.vim.git $script_dir/bundle/Vundle.vim
 

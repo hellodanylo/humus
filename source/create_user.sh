@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -o xtrace
+set -eux
 
 user_id="$1"
 user_name="$2"
