@@ -22,11 +22,19 @@ vim -E -u NONE -c "helptags $VIM_PLUGINS/slime/doc" -c q
 git clone -q -b 0.42.0 https://github.com/junegunn/fzf.git $VIM_PLUGINS/fzf
 vim -E -u NONE -c "helptags $VIM_PLUGINS/fzf/doc" -c q
 
-git clone -q -b v0.9.1 https://github.com/nvim-treesitter/nvim-treesitter.git $VIM_PLUGINS/nvim-treesitter
-vim -E -u NONE -c "helptags $VIM_PLUGINS/nvim-treesitter/doc" -c q
-vim -E -c "TSInstall c lua vim vimdoc query python rust bash json toml yaml dockerfile" -c q
+git clone -q -b v0.1.3 https://github.com/nvim-lua/plenary.nvim.git $VIM_PLUGINS/plenary
+#vim -E -u NONE -c "helptags $VIM_PLUGINS/plenary/doc" -c q
 
-git clone -q -b v0.11 https://github.com/vim-airline/vim-airline.git $VIM_PLUGINS/vim-airline
-git clone -q https://github.com/vim-airline/vim-airline-themes.git $VIM_PLUGINS/vim-airline-themes
-vim -E -u NONE -c "helptags $VIM_PLUGINS/vim-airline/doc" -c q
+git clone -q -b 0.1.2 https://github.com/nvim-telescope/telescope.nvim.git $VIM_PLUGINS/telescope
+vim -E -u NONE -c "helptags $VIM_PLUGINS/telescope/doc" -c q
+
+git clone -q https://github.com/meatballs/notebook.nvim.git $VIM_PLUGINS/notebook
+
+git clone -q -b v0.9.1 https://github.com/nvim-treesitter/nvim-treesitter.git $VIM_PLUGINS/treesitter
+vim -E -u NONE -c "helptags $VIM_PLUGINS/treesitter/doc" -c q
+vim -E -c "TSInstallSync python rust bash json toml yaml dockerfile javascript typescript" -c q
+
+git clone -q -b v0.11 https://github.com/vim-airline/vim-airline.git $VIM_PLUGINS/airline
+git clone -q https://github.com/vim-airline/vim-airline-themes.git $VIM_PLUGINS/airline-themes
+vim -E -u NONE -c "helptags $VIM_PLUGINS/airline/doc" -c q
 

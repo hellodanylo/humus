@@ -14,6 +14,7 @@ RUN apt-get -qy update >/dev/null \
         curl \
         dnsutils \
         exa \
+        fd-find \
         fzf \
         git \
         gnupg \
@@ -21,7 +22,6 @@ RUN apt-get -qy update >/dev/null \
         locales \
         man \
         ripgrep \
-        silversearcher-ag \
         software-properties-common \
         sudo \
         tmux \
