@@ -8,7 +8,7 @@ RUN apt-get -qy update >/dev/null \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -qy install \
         apt-file \
-        bmon \
+        btop \
         clang \
         ctop \
         curl \
