@@ -28,7 +28,8 @@ git clone -q -b v0.1.3 https://github.com/nvim-lua/plenary.nvim.git $VIM_PLUGINS
 git clone -q -b 0.1.2 https://github.com/nvim-telescope/telescope.nvim.git $VIM_PLUGINS/telescope
 vim -E -u NONE -c "helptags $VIM_PLUGINS/telescope/doc" -c q
 
-git clone -q https://github.com/meatballs/notebook.nvim.git $VIM_PLUGINS/notebook
+git clone -q -b v0.1.6 https://github.com/neovim/nvim-lspconfig.git $VIM_PLUGINS/lspconfig
+vim -E -u NONE -c "helptags $VIM_PLUGINS/lspconfig/doc" -c q
 
 git clone -q -b v0.9.1 https://github.com/nvim-treesitter/nvim-treesitter.git $VIM_PLUGINS/treesitter
 vim -E -u NONE -c "helptags $VIM_PLUGINS/treesitter/doc" -c q

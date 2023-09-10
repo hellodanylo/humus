@@ -66,11 +66,17 @@ RUN chsh root -s /bin/zsh
 COPY symlink.sh $HUMUS_PATH/symlink.sh
 RUN $HUMUS_PATH/symlink.sh $HUMUS_PATH
 
-RUN wget -O - https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz | tar -xz -C $HUMUS_PATH && \
+RUN curl -Lo - https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz | tar -xz -C $HUMUS_PATH && \
     ln -s $HUMUS_PATH/nvim-linux64/bin/nvim $HUMUS_PATH/nvim-linux64/bin/vim
 
-COPY vim $HUMUS_PATH/vim
+RUN mkdir $HUMUS_PATH/vim
+WORKDIR $HUMUS_PATH/vim
+COPY vim/install.sh ./
 RUN $HUMUS_PATH/vim/install.sh
+COPY vim/install_lsp_python.sh ./
+COPY vim/install_lsp_rust.sh ./
+COPY vim/lua ./lua
+COPY vim/init.lua ./
 
 COPY tmux.conf $HUMUS_PATH/tmux.conf
 

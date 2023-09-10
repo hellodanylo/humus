@@ -16,4 +16,4 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 require('humus.treesitter')
 require('humus.telescope')
-require('notebook').setup()
+require('humus.lspconfig')
