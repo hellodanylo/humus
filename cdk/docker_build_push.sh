@@ -4,7 +4,7 @@ set -eux
 
 aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO
 
-docker run --privileged --rm tonistiigi/binfmt --install arm64
+docker run --privileged --rm public.ecr.aws/eks-distro-build-tooling/binfmt-misc:qemu-v7.0.0 --install arm64
 
 function build_image() {
     platform=$1
