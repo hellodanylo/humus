@@ -7,6 +7,13 @@ script_dir=${0:a:h}
 VIM_PLUGINS=$script_dir/pack/shell/start
 mkdir -p $VIM_PLUGINS
 
+cd $script_dir
+git clone -q -b v0.9.1 https://github.com/neovim/neovim.git ./neovim
+cd ./neovim
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+make install
+ln -s /usr/local/bin/nvim /usr/local/bin/vim
+
 git clone -q -b v3.6 https://github.com/tpope/vim-fugitive.git $VIM_PLUGINS/fugitive
 vim -E -u NONE -c "helptags $VIM_PLUGINS/fugitive/doc" -c q
 

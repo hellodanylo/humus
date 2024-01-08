@@ -14,3 +14,4 @@ source/zsh/zshrc_local.sh
 .vscode
 cdk.out
 __pycache__
+.env

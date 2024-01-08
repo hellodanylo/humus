@@ -1,14 +1,16 @@
 #!/usr/bin/env zsh
 
+set -uex
+
 script_dir=${0:a:h}
 image_name="humus"
 
-docker build \
-    --platform linux/arm/v7 \
-    --build-arg ARCH=armhf \
-    --target core \
-    -t "${image_name}:latest-arm7" \
-    $script_dir/../source
+# docker build \
+    # --platform linux/arm/v7 \
+    # --build-arg ARCH=armhf \
+    # --target core \
+    # -t "${image_name}:latest-arm7" \
+    # $script_dir/../source
 
 docker build \
     --platform linux/arm64/v8 \

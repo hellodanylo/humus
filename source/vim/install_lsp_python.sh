@@ -2,7 +2,14 @@
 
 cd $HUMUS_PATH/vim
 
-node_version="node-v18.17.1-linux-x64"
+machine=$(uname -m)
+if [ "$machine" == "x86_64" ]; then
+    machine="x64"
+else
+    machine="arm64"
+fi
+
+node_version="node-v18.17.1-linux-$machine"
 
 curl -o - "https://nodejs.org/dist/v18.17.1/$node_version.tar.xz" | tar xfJ -
 

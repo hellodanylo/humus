@@ -24,3 +24,10 @@ $HUMUS_PATH/symlink.sh $HUMUS_PATH
 * `exa` for better file system viewing
 * `fzf` for fuzzy search
 * `rg` for recursive search in files
+
+## Arm Support
+
+```
+docker run --privileged --rm tonistiigi/binfmt --install arm64
+docker run --rm arm64v8/alpine uname -a
+```

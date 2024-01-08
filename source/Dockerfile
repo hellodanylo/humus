@@ -9,18 +9,22 @@ RUN apt-get -qy update >/dev/null \
         apt-get -qy install \
         apt-file \
         btop \
+        build-essential \
         clang \
+        cmake \
         ctop \
         curl \
         dnsutils \
         exa \
         fd-find \
         fzf \
+        gettext \
         git \
         gnupg \
         htop \
         locales \
         man \
+        ninja-build \
         ripgrep \
         software-properties-common \
         sudo \
@@ -65,9 +69,6 @@ RUN chsh root -s /bin/zsh
 
 COPY symlink.sh $HUMUS_PATH/symlink.sh
 RUN $HUMUS_PATH/symlink.sh $HUMUS_PATH
-
-RUN curl -Lo - https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz | tar -xz -C $HUMUS_PATH && \
-    ln -s $HUMUS_PATH/nvim-linux64/bin/nvim $HUMUS_PATH/nvim-linux64/bin/vim
 
 RUN mkdir $HUMUS_PATH/vim
 WORKDIR $HUMUS_PATH/vim
