@@ -10,6 +10,7 @@ function build_image() {
     platform=$1
 
     docker build \
+        --platform $platform \
         --build-arg ARCH=$platform \
         --build-arg "BASE_IMAGE=public.ecr.aws/ubuntu/ubuntu:22.04" \
         --target core \
@@ -17,6 +18,7 @@ function build_image() {
     docker push "${ECR_REPO}:core-$platform"
 
     docker build \
+        --platform $platform \
         --build-arg ARCH=$platform \
         --build-arg "BASE_IMAGE=public.ecr.aws/ubuntu/ubuntu:22.04" \
         --build-arg "user_id=1000" \
