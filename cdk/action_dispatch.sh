@@ -2,10 +2,10 @@
 
 set -eux
 
-if [[ $(uname -v | grep Ubuntu) ]]; then
+if [ -x "$(command -v apt-get)" ]; then
     apt-get install -yq zsh 2>&1 >/dev/null
 else
-    yum install zsh 2>&1 >/dev/null
+    yum install -yq zsh 2>&1 >/dev/null
 fi
 
 action=$1
