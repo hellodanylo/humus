@@ -62,7 +62,7 @@ class HumusBuildStack(Stack):
             f'CodeBuildProjectAmd64', 
             project_name=f'humus-amd64',
             environment=cb.BuildEnvironment(
-                build_image=cb.LinuxBuildImage.STANDARD_6_0,
+                build_image=cb.LinuxBuildImage.STANDARD_7_0,
                 compute_type=cb.ComputeType.SMALL,
                 privileged=True
             ),
