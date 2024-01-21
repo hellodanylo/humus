@@ -14,7 +14,7 @@ action=$1
 if [ "$action" == build-arm64 ]; then
     ./cdk/docker_build_push.sh arm64
 elif [ "$action" == build-amd64 ]; then
-    ./cdk/docker_build_push.sh amd4
+    ./cdk/docker_build_push.sh amd64
 elif [ "$action" == deploy ]; then
     ./cdk/docker_manifest_push.sh
     ./cdk/cdk_deploy.sh
