@@ -3,6 +3,7 @@
 set -eux
 
 if [ -x "$(command -v apt-get)" ]; then
+    apt-get update -yq 2>&1 >/dev/null
     apt-get install -yq zsh 2>&1 >/dev/null
 else
     yum install -yq zsh 2>&1 >/dev/null
