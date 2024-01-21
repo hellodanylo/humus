@@ -4,6 +4,8 @@ ARG ARCH=amd64
 
 SHELL ["/bin/bash", "-c"]
 
+RUN yes | unminimize 2>&1 >/dev/null
+
 RUN apt-get -qy update >/dev/null \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -qy install \
@@ -35,8 +37,6 @@ RUN apt-get -qy update >/dev/null \
         zip \
         zsh \
         2>&1 >/dev/null
-
-RUN yes | unminimize
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
