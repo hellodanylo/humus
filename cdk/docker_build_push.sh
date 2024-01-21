@@ -4,7 +4,7 @@ set -eux
 
 aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO
 
-docker run --privileged --rm public.ecr.aws/eks-distro-build-tooling/binfmt-misc:qemu-v7.0.0 --install arm64
+# docker run --privileged --rm public.ecr.aws/eks-distro-build-tooling/binfmt-misc:qemu-v7.0.0 --install arm64
 
 function build_image() {
     platform=$1
@@ -32,17 +32,4 @@ function build_image() {
     docker push "${ECR_REPO}:user-$platform"
 }
 
-build_image "amd64"
-build_image "arm64"
-
-docker manifest rm "${ECR_REPO}:latest"
-docker manifest create "${ECR_REPO}:latest" "${ECR_REPO}:core-amd64" "${ECR_REPO}:core-arm64"
-docker manifest annotate --arch "amd64" "${ECR_REPO}:latest" "${ECR_REPO}:core-amd64"
-docker manifest annotate --arch "arm64" "${ECR_REPO}:latest" "${ECR_REPO}:core-arm64"
-docker manifest push "${ECR_REPO}:latest" 
-
-docker manifest rm "${ECR_REPO}:user-latest"
-docker manifest create "${ECR_REPO}:user-latest" "${ECR_REPO}:user-amd64" "${ECR_REPO}:user-arm64"
-docker manifest annotate --arch "amd64" "${ECR_REPO}:user-latest" "${ECR_REPO}:user-amd64"
-docker manifest annotate --arch "arm64" "${ECR_REPO}:user-latest" "${ECR_REPO}:user-arm64"
-docker manifest push "${ECR_REPO}:user-latest"
+build_image "$1"

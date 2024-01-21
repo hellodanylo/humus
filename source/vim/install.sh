@@ -10,8 +10,8 @@ mkdir -p $VIM_PLUGINS
 cd $script_dir
 git clone -q -b v0.9.1 https://github.com/neovim/neovim.git ./neovim
 cd ./neovim
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-make install
+make CMAKE_BUILD_TYPE=RelWithDebInfo >/dev/null
+make install >/dev/null
 ln -s /usr/local/bin/nvim /usr/local/bin/vim
 
 git clone -q -b v3.6 https://github.com/tpope/vim-fugitive.git $VIM_PLUGINS/fugitive

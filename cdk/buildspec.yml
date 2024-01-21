@@ -9,6 +9,4 @@ phases:
       nodejs: 16
   build:
     commands:
-      - apt-get update && apt-get install -yq zsh
-      - cdk/docker_build_push.sh
-      - cdk/cdk_deploy.sh
+      - cdk/action_dispatch.sh "$ACTION"
