@@ -63,7 +63,7 @@ class HumusBuildStack(Stack):
             project_name=f'humus',
             environment=cb.BuildEnvironment(
                 build_image=cb.LinuxBuildImage.STANDARD_6_0,
-                compute_type=cb.ComputeType.SMALL,
+                compute_type=cb.ComputeType.LARGE,
                 privileged=True
             ),
             environment_variables={
