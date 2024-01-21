@@ -8,11 +8,13 @@ docker run --privileged --rm public.ecr.aws/eks-distro-build-tooling/binfmt-misc
 
 function build_image() {
     platform=$1
+    image="public.ecr.aws/ubuntu/ubuntu:22.04"
+    docker pull --platform "$platform" "$image"
 
     docker build \
         --platform $platform \
         --build-arg ARCH=$platform \
-        --build-arg "BASE_IMAGE=public.ecr.aws/ubuntu/ubuntu:22.04" \
+        --build-arg "BASE_IMAGE=$image" \
         --target core \
         --tag "${ECR_REPO}:core-$platform" source
     docker push "${ECR_REPO}:core-$platform"
@@ -20,7 +22,7 @@ function build_image() {
     docker build \
         --platform $platform \
         --build-arg ARCH=$platform \
-        --build-arg "BASE_IMAGE=public.ecr.aws/ubuntu/ubuntu:22.04" \
+        --build-arg "BASE_IMAGE=$image" \
         --build-arg "user_id=1000" \
         --build-arg "user_name=user" \
         --build-arg "group_id=1000" \

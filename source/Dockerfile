@@ -33,7 +33,8 @@ RUN apt-get -qy update >/dev/null \
         tzdata \
         wget \
         zip \
-        zsh
+        zsh \
+        2>&1 >/dev/null
 
 RUN yes | unminimize
 
