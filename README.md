@@ -9,6 +9,11 @@ Humus is an Ubuntu-based container image with an opinionated set of software pre
 * Tmux
 
 ## Local Installation
+Requires:
+* cmake
+* unzip
+* gettext
+
 ```
 HUMUS_PATH="$HOME/opt/humus"
 

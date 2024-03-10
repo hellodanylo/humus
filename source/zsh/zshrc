@@ -100,6 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias h="history | perl -pe 's/\s*[0-9]+\s+(\\\t)?(.*)/\2/' | fzf --tac | zsh -l"
+alias l='exa -lah'
+alias ll='exa -l'
 
 export HISTSIZE=10000000
 export SAVEHIS=10000000
