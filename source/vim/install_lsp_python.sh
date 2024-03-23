@@ -3,7 +3,7 @@
 cd $HUMUS_PATH/vim
 
 machine=$(uname -m)
-if [ "$machine" == "x86_64" ]; then
+if [[ "$machine" == "x86_64" ]]; then
     machine="x64"
 else
     machine="arm64"

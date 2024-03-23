@@ -25,7 +25,6 @@ $HUMUS_PATH/symlink.sh $HUMUS_PATH
 
 ## Additional Tools
 
-* `bmon` for system monitoring
 * `exa` for better file system viewing
 * `fzf` for fuzzy search
 * `rg` for recursive search in files
@@ -36,3 +35,14 @@ $HUMUS_PATH/symlink.sh $HUMUS_PATH
 docker run --privileged --rm tonistiigi/binfmt --install arm64
 docker run --rm arm64v8/alpine uname -a
 ```
+
+## Vim Bindings
+
+Telescope:
+* \ff - file path
+* \fb - buffer name
+* \fg - file content
+* \fh - vim commands
+* \fs - lsp symbols
+
+* Nagivate panes - Ctrl+W, [hjkl]
