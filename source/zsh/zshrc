@@ -69,7 +69,7 @@ plugins=(git)
 plugins+=(zsh-vi-mode)
 plugins+=(cp)
 plugins+=(tmux)
-plugins+=(kubectl)
+#plugins+=(kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
