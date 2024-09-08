@@ -4,10 +4,6 @@ script_dir=${0:a:h}
 ZSH=$script_dir/ohmyzsh
 
 git clone https://github.com/ohmyzsh/ohmyzsh.git $ZSH
-cd $ZSH && git checkout 841f3cb0bb7663fa1062ffc59acb7b4581dc1d0f
+cd $ZSH && git checkout 80fa5e137672a529f65a05e396b40f0d133b2432
 
 ln -s $script_dir/alpha.zsh-theme $ZSH/themes
-
-git clone -b v0.8.5 https://github.com/jeffreytse/zsh-vi-mode \
-  $ZSH/custom/plugins/zsh-vi-mode
-
