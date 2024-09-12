@@ -5,38 +5,8 @@ ARG ARCH=amd64
 SHELL ["/bin/bash", "-c"]
 
 RUN yes | unminimize 2>&1 >/dev/null
-
-RUN apt-get -qy update >/dev/null \
-    && DEBIAN_FRONTEND=noninteractive \
-        apt-get -qy install \
-        apt-file \
-        btop \
-        build-essential \
-        clang \
-        cmake \
-        ctop \
-        curl \
-        dnsutils \
-        exa \
-        fd-find \
-        fzf \
-        gettext \
-        git \
-        gnupg \
-        htop \
-        locales \
-        man \
-        ninja-build \
-        ripgrep \
-        software-properties-common \
-        sudo \
-        tmux \
-        tree \
-        tzdata \
-        wget \
-        zip \
-        zsh \
-        2>&1 >/dev/null
+COPY apt_install.sh ./apt_install.sh
+RUN sudo ./apt_install.sh
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
