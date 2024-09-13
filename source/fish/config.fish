@@ -10,6 +10,10 @@ if status is-interactive
     function ga
         git add $argv
     end
+
+    function gd
+        git diff $argv
+    end
 end
 
 function vim

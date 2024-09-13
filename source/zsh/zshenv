@@ -9,4 +9,4 @@ if [[ -a "$HUMUS_PATH/zsh/zshenv_local.sh" ]]; then
     source "$HUMUS_PATH/zsh/zshenv_local.sh"
 fi
 
-export PATH="$HUMUS_PATH/nvim-linux64/bin:$PATH"
+export PATH="$HUMUS_PATH/vim/neovim/bin:$PATH"
