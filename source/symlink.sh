@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -eux
+set -ux
 prefix=${1:a}
 
 mkdir -p ~/.config
