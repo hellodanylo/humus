@@ -33,6 +33,7 @@ ENV HUMUS_PATH=/opt/humus
 RUN mkdir -p $HUMUS_PATH
 RUN ln -s /root/.humus $HUMUS_PATH
 
+COPY fish $HUMUS_PATH/fish
 COPY zsh $HUMUS_PATH/zsh
 RUN $HUMUS_PATH/zsh/install.sh
 ENV ZSH=$HUMUS_PATH/zsh/ohmyzsh
