@@ -6,7 +6,7 @@ SHELL ["/bin/bash", "-c"]
 
 RUN yes | unminimize 2>&1 >/dev/null
 COPY apt_install.sh ./apt_install.sh
-RUN sudo ./apt_install.sh
+RUN ./apt_install.sh
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
