@@ -3,10 +3,6 @@ if status is-interactive
     set -g fish_vi_force_cursor
     fish_vi_key_bindings
 
-    function vim
-        nvim $argv
-    end
-
     function gst
         git status $argv
     end
@@ -16,4 +12,9 @@ if status is-interactive
     end
 end
 
+function vim
+    nvim $argv
+end
 
+set __fish_ls_command exa
+    
