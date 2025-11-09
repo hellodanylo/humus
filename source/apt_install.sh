@@ -9,10 +9,9 @@ apt-get -qy update >/dev/null \
         build-essential \
         clang \
         cmake \
-        ctop \
         curl \
         dnsutils \
-        exa \
+        eza \
         fd-find \
         fish \
         fzf \

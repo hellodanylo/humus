@@ -8,10 +8,30 @@ VIM_PLUGINS=$script_dir/pack/shell/start
 mkdir -p $VIM_PLUGINS
 
 cd $script_dir
-git clone -q -b v0.9.1 https://github.com/neovim/neovim.git ./neovim
-cd ./neovim
-make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$script_dir/neovim >/dev/null
-make install >/dev/null
+
+# Detect OS and architecture
+os_name=$(uname -s)
+arch_name=$(uname -m)
+
+# Normalize OS and architecture identifiers
+case "$os_name" in
+  Linux*) os="linux" ;;
+  Darwin*) os="macos" ;;
+  *) echo "Unsupported OS: $os_name" >&2; exit 1 ;;
+esac
+
+case "$arch_name" in
+  x86_64) arch="x86_64" ;;
+  arm64|aarch64) arch="arm64" ;;
+  *) echo "Unsupported architecture: $arch_name" >&2; exit 1 ;;
+esac
+
+name="nvim-$os-$arch"
+file="$name.tar.gz"
+wget https://github.com/neovim/neovim/releases/download/v0.11.5/$file
+tar xvf $file
+rm $file
+mv $name neovim
 
 git clone -q -b v3.6 https://github.com/tpope/vim-fugitive.git $VIM_PLUGINS/fugitive
 nvim -E -u NONE -c "helptags $VIM_PLUGINS/fugitive/doc" -c q

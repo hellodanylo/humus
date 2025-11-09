@@ -7,6 +7,7 @@ source/vim/.netrwhist
 source/vim/bundle/
 source/vim/pack/
 source/zsh/ohmyzsh/
+source/vim/neovim
 
 source/zsh/zshenv_local.sh
 source/zsh/zshrc_local.sh
